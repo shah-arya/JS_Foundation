@@ -30,7 +30,8 @@ function showbooks(){
     <p><strong>Author Name: </strong>${book.author}</p>
     <p><strong>Book Description: </strong>${book.book_description}</p>
     <p><strong>No. of Pages: </strong>${book.page_num} page(s) </p>
-    <button onclick="editbook(${index})">Edit</button>`      
+    <button onclick="editbook(${index})">Edit</button>
+    <button onclick="deletebook(${index})">Delete</button>`   
     );
     document.getElementById('books').innerHTML = booksDiv.join('');
 }
@@ -54,3 +55,9 @@ function clearInputs() {
     document.getElementById('pagesNumber').value = '';
 }
 
+// deletebook function will delete the book's detail in the management system
+// for that particular ID.
+function deletebook(index){
+    books.splice(index, 1);
+    showbooks();
+}
